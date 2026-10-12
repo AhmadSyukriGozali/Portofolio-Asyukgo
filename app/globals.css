@@ -1,7 +1,29 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
