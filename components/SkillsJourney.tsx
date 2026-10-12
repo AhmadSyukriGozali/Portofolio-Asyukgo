@@ -10,17 +10,34 @@ const PERSPECTIVE = 1100;
 // Tinggi scroll per lapisan, dalam persen tinggi layar.
 const SCROLL_PER_LAYER = 120;
 
+// Di antara dua lapisan, kamera hanya bergerak pada rentang ini (0 sampai 1).
+// Di luar rentang itu kamera diam di lapisan, sehingga tampilannya tajam.
+const TRANSIT_START = 0.35;
+const TRANSIT_END = 0.65;
+
+// Jeda setelah scroll berhenti sebelum kamera meluncur sendiri ke lapisan
+// terdekat, dan lama luncurannya (ms). Dibuat lambat supaya blur terasa
+// menghilang perlahan, bukan langsung muncul.
+const SETTLE_DELAY = 160;
+const SETTLE_DURATION = 1100;
+
 const clamp = (value: number, min = 0, max = 1) =>
   Math.min(max, Math.max(min, value));
 
 const smoothstep = (x: number) => x * x * (3 - 2 * x);
+
+const easeInOutCubic = (x: number) =>
+  x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
 // Menahan kamera sebentar di setiap lapisan supaya teks sempat dibaca,
 // lalu bergerak halus ke lapisan berikutnya.
 function dwell(position: number) {
   const base = Math.floor(position);
   const fraction = position - base;
-  return base + smoothstep(clamp((fraction - 0.3) / 0.4));
+  return (
+    base +
+    smoothstep(clamp((fraction - TRANSIT_START) / (TRANSIT_END - TRANSIT_START)))
+  );
 }
 
 type SkillsJourneyProps = {
@@ -63,10 +80,10 @@ export default function SkillsJourney({ groups }: SkillsJourneyProps) {
 
         if (distance >= 0) {
           opacity = clamp(1 - distance * 0.85);
-          blur = Math.min(10, distance * 7);
+          blur = Math.min(8, distance * 6);
         } else {
           opacity = clamp(1 + distance * 1.6);
-          blur = Math.min(6, -distance * 10);
+          blur = Math.min(5, -distance * 8);
         }
 
         // Tanpa preserve-3d, urutan tumpukan mengikuti z-index, bukan kedalaman.
@@ -94,13 +111,91 @@ export default function SkillsJourney({ groups }: SkillsJourneyProps) {
       if (!frame) frame = requestAnimationFrame(render);
     };
 
+    // --- Meluncur otomatis ke lapisan terdekat ---------------------------
+    let settleTimer = 0;
+    let settleFrame = 0;
+    let settling = false;
+
+    const cancelSettle = () => {
+      window.clearTimeout(settleTimer);
+      if (settleFrame) cancelAnimationFrame(settleFrame);
+      settleFrame = 0;
+      settling = false;
+    };
+
+    const settle = () => {
+      if (count < 2) return;
+
+      const rect = track.getBoundingClientRect();
+      const scrollable = rect.height - window.innerHeight;
+      if (scrollable <= 0) return;
+
+      // Hanya saat layar sedang menempel di area perjalanan.
+      if (rect.top > 0 || rect.bottom < window.innerHeight) return;
+
+      const offset = -rect.top;
+      const position = clamp(offset / scrollable) * (count - 1);
+      const fraction = position - Math.floor(position);
+
+      // Sudah di zona tahan: tampilannya tajam, tidak perlu digeser.
+      if (fraction <= TRANSIT_START || fraction >= TRANSIT_END) return;
+
+      const target = Math.round(position);
+      const distance = (target / (count - 1)) * scrollable - offset;
+      const from = window.scrollY;
+      const startTime = performance.now();
+
+      settling = true;
+
+      const step = (now: number) => {
+        const progress = clamp((now - startTime) / SETTLE_DURATION);
+
+        // "instant" supaya `scroll-behavior: smooth` di CSS tidak ikut
+        // menimpa gerakan per frame ini.
+        window.scrollTo({
+          top: from + distance * easeInOutCubic(progress),
+          behavior: "instant",
+        });
+
+        if (progress < 1) {
+          settleFrame = requestAnimationFrame(step);
+        } else {
+          settleFrame = 0;
+          settling = false;
+        }
+      };
+
+      settleFrame = requestAnimationFrame(step);
+    };
+
+    const onScroll = () => {
+      schedule();
+
+      // Tunggu scroll benar-benar berhenti, termasuk momentum di layar sentuh.
+      // Scroll yang kita buat sendiri saat meluncur diabaikan.
+      if (!settling) {
+        window.clearTimeout(settleTimer);
+        settleTimer = window.setTimeout(settle, SETTLE_DELAY);
+      }
+    };
+
+    // Begitu pengguna menggulir lagi, luncuran otomatis langsung dibatalkan.
+    const interruptEvents = ["wheel", "touchstart", "pointerdown", "keydown"];
+
     render();
-    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", schedule);
+    interruptEvents.forEach((name) =>
+      window.addEventListener(name, cancelSettle, { passive: true }),
+    );
 
     return () => {
-      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", schedule);
+      interruptEvents.forEach((name) =>
+        window.removeEventListener(name, cancelSettle),
+      );
+      cancelSettle();
       if (frame) cancelAnimationFrame(frame);
     };
   }, [count]);
