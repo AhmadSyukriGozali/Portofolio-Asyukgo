@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Parallax from "@/components/Parallax";
 
 export default function Hero() {
   return (
@@ -6,16 +7,22 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden"
     >
-      {/* Background glow */}
-      <div className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-[140px]" />
+      {/* Background glow: lapisan paling jauh, bergeser paling cepat */}
+      <Parallax
+        speed={0.35}
+        className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-[140px]"
+      />
 
-      <div className="absolute right-0 top-24 -z-10 h-72 w-72 rounded-full bg-blue-500/10 blur-[120px]" />
+      <Parallax
+        speed={0.25}
+        className="absolute right-0 top-24 -z-10 h-72 w-72 rounded-full bg-blue-500/10 blur-[120px]"
+      />
 
       <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-32">
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-          
-          {/* LEFT CONTENT */}
-          <div>
+
+          {/* LEFT CONTENT: bergeser pelan dan memudar saat Hero ditinggalkan */}
+          <Parallax speed={0.12} fade={0.85}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 text-sm text-cyan-300">
               <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
               Portofolio Pribadi
@@ -65,10 +72,13 @@ export default function Hero() {
               <span>📍 Indonesia</span>
               <span>💻 Terbuka untuk Peluang</span>
             </div>
-          </div>
+          </Parallax>
 
           {/* RIGHT PROFILE */}
-          <div className="relative flex justify-center lg:justify-end">
+          <Parallax
+            speed={0.06}
+            className="relative flex justify-center lg:justify-end"
+          >
             {/* Outer glow */}
             <div className="absolute h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
 
@@ -90,8 +100,11 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating badge */}
-              <div className="absolute -bottom-5 -left-5 rounded-2xl border border-white/10 bg-slate-900/90 px-5 py-4 shadow-xl backdrop-blur-xl">
+              {/* Floating badge: lebih dekat ke kamera, bergeser berlawanan */}
+              <Parallax
+                speed={-0.08}
+                className="absolute -bottom-5 -left-5 rounded-2xl border border-white/10 bg-slate-900/90 px-5 py-4 shadow-xl backdrop-blur-xl"
+              >
                 <p className="text-xs text-slate-500">
                   Saat Ini
                 </p>
@@ -99,12 +112,15 @@ export default function Hero() {
                 <p className="mt-1 font-semibold text-white">
                   Belajar & Berkarya
                 </p>
-              </div>
+              </Parallax>
 
               {/* Decorative element */}
-              <div className="absolute -right-4 -top-4 h-16 w-16 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 backdrop-blur-xl" />
+              <Parallax
+                speed={0.14}
+                className="absolute -right-4 -top-4 h-16 w-16 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 backdrop-blur-xl"
+              />
             </div>
-          </div>
+          </Parallax>
         </div>
       </div>
     </section>
