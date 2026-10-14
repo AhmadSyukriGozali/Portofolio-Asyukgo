@@ -7,19 +7,30 @@ import {
   CheckIcon,
   CopyIcon,
   GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
   MailIcon,
+  TikTokIcon,
   WhatsappIcon,
 } from "@/components/Icons";
 import {
   email,
   githubHandle,
   githubUrl,
+  instagramUrl,
+  linkedinUrl,
   location,
+  tiktokUrl,
   whatsappUrl,
 } from "@/data/contact";
 
 const linkClass =
   "flex items-center justify-between gap-x-2 font-medium text-title transition-[transform,color] duration-[400ms] hover:translate-x-[0.35rem] hover:text-copy desk:text-xl";
+
+const externalLinkProps = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+};
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -96,13 +107,17 @@ export default function Contact() {
             </h3>
 
             <div className="grid grid-cols-[max-content] justify-center gap-y-1 desk:gap-y-2">
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
+              <a href={githubUrl} {...externalLinkProps} className={linkClass}>
                 GitHub <GithubIcon className="h-6 w-6" />
+              </a>
+              <a href={linkedinUrl} {...externalLinkProps} className={linkClass}>
+                LinkedIn <LinkedinIcon className="h-6 w-6" />
+              </a>
+              <a href={instagramUrl} {...externalLinkProps} className={linkClass}>
+                Instagram <InstagramIcon className="h-6 w-6" />
+              </a>
+              <a href={tiktokUrl} {...externalLinkProps} className={linkClass}>
+                TikTok <TikTokIcon className="h-6 w-6" />
               </a>
               <a href={`mailto:${email}`} className={linkClass}>
                 Email <MailIcon className="h-6 w-6" />
@@ -121,11 +136,16 @@ export default function Contact() {
             <div className="grid grid-cols-[max-content] justify-center gap-y-1 desk:gap-y-2">
               <a
                 href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...externalLinkProps}
                 className={linkClass}
               >
                 WhatsApp <WhatsappIcon className="h-6 w-6" />
+              </a>
+              <a href={instagramUrl} {...externalLinkProps} className={linkClass}>
+                Instagram <InstagramIcon className="h-6 w-6" />
+              </a>
+              <a href={tiktokUrl} {...externalLinkProps} className={linkClass}>
+                TikTok <TikTokIcon className="h-6 w-6" />
               </a>
               <a href={`mailto:${email}`} className={linkClass}>
                 Kirim Email <ArrowUpRightIcon className="h-6 w-6" />
