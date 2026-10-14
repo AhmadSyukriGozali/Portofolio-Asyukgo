@@ -1,37 +1,361 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui,
-    sans-serif;
-  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui,
-    sans-serif;
+/* Palet & tipografi mengikuti situs referensi (hue 255, Montserrat + Unbounded) */
+@theme {
+  --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-second: "Unbounded Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: hsl(240 100% 2%);
+  --color-card: hsl(240 8% 6%);
+  --color-title: hsl(240 8% 95%);
+  --color-copy: hsl(240 8% 70%);
+  --color-muted: hsl(240 8% 50%);
+  --color-first: hsl(255 60% 64%);
+  --color-first-alt: hsl(255 80% 56%);
+  --color-first-alt-2: hsl(255 60% 56%);
+  --color-first-light: hsl(255 60% 74%);
+
+  /* dalam rem agar urutannya konsisten dengan breakpoint bawaan (540px & 1150px) */
+  --breakpoint-xs: 33.75rem;
+  --breakpoint-desk: 71.875rem;
 }
 
-@layer base {
-  h1,
-  h2,
-  h3 {
-    font-family: var(--font-display);
-    letter-spacing: -0.025em;
+:root {
+  --header-height: 3.5rem;
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+}
+
+@media (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --bigger-font-size: 2rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+@utility fs-biggest {
+  font-size: var(--biggest-font-size);
+}
+@utility fs-bigger {
+  font-size: var(--bigger-font-size);
+}
+@utility fs-h1 {
+  font-size: var(--h1-font-size);
+}
+@utility fs-h2 {
+  font-size: var(--h2-font-size);
+}
+@utility fs-h3 {
+  font-size: var(--h3-font-size);
+}
+@utility fs-normal {
+  font-size: var(--normal-font-size);
+}
+@utility fs-small {
+  font-size: var(--small-font-size);
+}
+@utility fs-smaller {
+  font-size: var(--smaller-font-size);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-copy);
+    font-family: var(--font-sans);
+    font-size: var(--normal-font-size);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-second);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-title);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Tata letak dasar */
+  .wrap {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+  }
+
+  @media (max-width: 320px) {
+    .wrap {
+      margin-inline: 1rem;
+    }
+  }
+
+  @media (min-width: 1150px) {
+    .wrap {
+      margin-inline: auto;
+    }
+  }
+
+  .section {
+    padding-block: 2rem 1rem;
+  }
+
+  @media (min-width: 1150px) {
+    .section {
+      padding-block: 7rem 2rem;
+    }
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: var(--h1-font-size);
+    margin-bottom: 3rem;
+  }
+
+  .section-title span {
+    color: var(--color-first);
+  }
+
+  @media (min-width: 1150px) {
+    .section-title {
+      margin-bottom: 4rem;
+    }
+  }
+
+  /* Tombol */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-first);
+    color: var(--color-title);
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    font-family: var(--font-second);
+    font-weight: 600;
+    box-shadow:
+      0 8px 32px hsl(255 60% 64% / 0.5),
+      inset 8px -8px 30px var(--color-first-alt-2);
+    transition: box-shadow 0.4s;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    box-shadow:
+      0 8px 48px hsl(255 60% 64% / 0.7),
+      inset 8px -8px 30px var(--color-first-alt-2);
+  }
+
+  /* Blob bercahaya */
+  .blob {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(
+      180deg,
+      var(--color-first) 0%,
+      var(--color-first-alt) 100%
+    );
+    border-radius: 50%;
+    filter: blur(50px);
+    position: absolute;
+    z-index: -1;
+  }
+
+  .blob-animate {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(
+      180deg,
+      var(--color-first-alt) 20%,
+      var(--color-first-light) 100%
+    );
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(35px);
+    z-index: -1;
+    animation: animate-blob 5s linear infinite;
+  }
+
+  /* Kursor kustom */
+  .cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-first-light);
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--color-first);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition:
+      left 0.2s ease-out,
+      top 0.2s ease-out,
+      width 0.3s,
+      height 0.3s;
+  }
+
+  .cursor.hide-cursor {
+    width: 0;
+    height: 0;
+  }
+
+  @media (pointer: coarse) {
+    .cursor {
+      display: none;
+    }
+  }
+
+  /* Animasi muncul saat scroll (mirip ScrollReveal) */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0), var(--reveal-y, -60px), 0);
+    transition:
+      opacity 1.6s cubic-bezier(0.5, 0, 0, 1),
+      transform 1.6s cubic-bezier(0.5, 0, 0, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Teks bergantian per huruf di Hero */
+  .char {
+    display: inline-block;
+    animation: char-loop 5.8s infinite both;
+  }
+
+  /* Marquee testimoni */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 18s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-reverse {
+    flex-direction: row-reverse;
+    animation-direction: reverse;
+    animation-delay: -1s;
+  }
+
+  /* Bullet pagination Swiper */
+  .projects .swiper-pagination-bullets {
+    bottom: 0;
+  }
+
+  .projects .swiper-pagination-bullet {
+    background-color: var(--color-first);
+    transition: opacity 0.4s;
+  }
+}
+
+@keyframes animate-blob {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes char-loop {
+  0% {
+    transform: translateY(100%);
+  }
+  15%,
+  82% {
+    transform: translateY(0);
+  }
+  97% {
+    transform: translateY(-100%);
+  }
+  97.01%,
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
+  .blob-animate,
+  .marquee-track {
+    animation: none;
+  }
+
+  .char {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
-body {
-  margin: 0;
-  background: #020617;
-  color: white;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: hsl(240 6% 12%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(240 6% 20%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(240 6% 24%);
 }
 
 ::selection {
-  background: rgba(34, 211, 238, 0.3);
+  background: hsl(255 60% 64% / 0.4);
 }

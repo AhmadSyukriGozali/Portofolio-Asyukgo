@@ -51,15 +51,15 @@ export default function CertificateModal({
         }
       }}
     >
-      <div className="relative flex h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-950 shadow-2xl shadow-black/50">
+      <div className="relative flex h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-bg shadow-2xl shadow-black/50">
         {/* Header */}
-        <div className="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 bg-slate-950/95 px-5 py-4 backdrop-blur-xl sm:px-6">
+        <div className="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 bg-bg/95 px-5 py-4 backdrop-blur-xl sm:px-6">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-first">
               Sertifikat
             </p>
 
-            <h2 className="mt-1 truncate text-sm font-semibold text-white sm:text-base">
+            <h2 className="mt-1 truncate text-sm font-semibold text-title sm:text-base">
               {certificate.title}
             </h2>
           </div>
@@ -70,7 +70,7 @@ export default function CertificateModal({
               href={certificate.file}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden rounded-xl border border-white/10 px-4 py-2 text-sm font-semibold text-slate-300 transition duration-300 hover:border-cyan-400/30 hover:text-cyan-400 sm:inline-flex"
+              className="hidden rounded-xl border border-white/10 px-4 py-2 text-sm font-semibold text-copy transition duration-300 hover:border-first/40 hover:text-first sm:inline-flex"
             >
               Buka PDF ↗
             </a>
@@ -79,7 +79,7 @@ export default function CertificateModal({
             <a
               href={certificate.file}
               download
-              className="hidden rounded-xl border border-white/10 px-4 py-2 text-sm font-semibold text-slate-300 transition duration-300 hover:border-cyan-400/30 hover:text-cyan-400 sm:inline-flex"
+              className="hidden rounded-xl border border-white/10 px-4 py-2 text-sm font-semibold text-copy transition duration-300 hover:border-first/40 hover:text-first sm:inline-flex"
             >
               Unduh
             </a>
@@ -88,7 +88,7 @@ export default function CertificateModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-lg text-slate-400 transition duration-300 hover:border-red-400/30 hover:bg-red-400/5 hover:text-red-400"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-lg text-copy transition duration-300 hover:border-red-400/30 hover:bg-red-400/5 hover:text-red-400"
               aria-label="Tutup modal"
             >
               ✕
@@ -97,7 +97,7 @@ export default function CertificateModal({
         </div>
 
         {/* PDF viewer */}
-        <div className="min-h-0 flex-1 bg-slate-900">
+        <div className="min-h-0 flex-1 bg-card">
           <iframe
             src={`${certificate.file}#toolbar=1&navpanes=0`}
             title={`PDF ${certificate.title}`}
@@ -106,12 +106,12 @@ export default function CertificateModal({
         </div>
 
         {/* Mobile actions */}
-        <div className="flex shrink-0 gap-2 border-t border-white/10 bg-slate-950 p-3 sm:hidden">
+        <div className="flex shrink-0 gap-2 border-t border-white/10 bg-bg p-3 sm:hidden">
           <a
             href={certificate.file}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-1 items-center justify-center rounded-xl border border-white/10 px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:border-cyan-400/30 hover:text-cyan-400"
+            className="flex flex-1 items-center justify-center rounded-xl border border-white/10 px-4 py-2.5 text-sm font-semibold text-copy transition hover:border-first/40 hover:text-first"
           >
             Buka PDF ↗
           </a>
@@ -119,7 +119,7 @@ export default function CertificateModal({
           <a
             href={certificate.file}
             download
-            className="flex flex-1 items-center justify-center rounded-xl bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
+            className="flex flex-1 items-center justify-center rounded-xl bg-first-alt-2 px-4 py-2.5 text-sm font-semibold text-title transition hover:bg-first-light"
           >
             Unduh
           </a>
