@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import AnimatedText from "@/components/AnimatedText";
-import { GithubIcon, MailIcon, WhatsappIcon } from "@/components/Icons";
-import { email, githubUrl, whatsappUrl } from "@/data/contact";
+import { GithubIcon, MailIcon, WhatsappIcon, InstagramIcon, TikTokIcon } from "@/components/Icons";
+import { email, githubUrl, whatsappUrl, instagramUrl, tiktokUrl } from "@/data/contact";
 
 const socials = [
   { label: "GitHub", href: githubUrl, Icon: GithubIcon },
   { label: "Email", href: `mailto:${email}`, Icon: MailIcon },
   { label: "WhatsApp", href: whatsappUrl, Icon: WhatsappIcon },
+  { label: "InstaGram", href: instagramUrl, Icon: InstagramIcon },
+  { label: "TikTok", href: tiktokUrl, Icon: TikTokIcon },
 ];
 
 export default function Hero() {

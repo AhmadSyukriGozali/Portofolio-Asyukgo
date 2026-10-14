@@ -38,7 +38,7 @@ export const skillGroups: SkillGroup[] = [
     layer: "Alat & rilis",
     description:
       "Tools yang membantu saya dalam proses coding, version control, dan deployment.",
-    skills: ["Git", "GitHub", "VS Code", "Vercel"],
+    skills: ["Git", "GitHub", "VS Code", "Vercel", "Supabase", "Claude", "ChatGPT", "Copilot"],
   },
   {
     title: "Keahlian Lainnya",

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { ArrowUpRightIcon } from "@/components/Icons";
 
 export default function About() {
   return (
@@ -22,11 +21,15 @@ export default function About() {
               </b>
               . Saya senang mempelajari teknologi baru, memecahkan masalah logika, 
               dan membangun beberapa proyek praktis dari awal. 
-              Saya siap untuk terus berkembang dan berkontribusi dalam tim yang dinamis."
+              Saya siap untuk terus berkembang dan berkontribusi dalam tim yang dinamis.
             </p>
 
-            <a href="/public/resume/CV-Ahmad-Syukri-Gozali.pdf" download="CV-Ahmad-Syukri-Gozali.pdf" className="btn">
-              <button className="flex items-center gap-x-2">Download RESUME</button>
+            <a
+              href="/resume/CV-Ahmad-Syukri-Gozali.pdf"
+              download="CV-Ahmad-Syukri-Gozali.pdf"
+              className="btn flex w-fit items-center gap-x-2"
+            >
+              Download RESUME
             </a>
           </Reveal>
 
