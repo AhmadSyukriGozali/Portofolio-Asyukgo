@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource-variable/instrument-sans";
+import "@fontsource-variable/montserrat";
+import "@fontsource-variable/unbounded";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 const siteUrl = "https://portofolio-asyukgo.vercel.app";
 
@@ -95,7 +96,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body>{children}</body>
+      <body>
+        {children}
+        <CustomCursor />
+      </body>
     </html>
   );
 }
