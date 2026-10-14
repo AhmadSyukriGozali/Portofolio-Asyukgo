@@ -45,7 +45,7 @@ export default function Hero() {
             className="w-[320px] justify-self-center desk:w-[600px]"
           />
 
-          <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,hsl(240_100%_2%/0)_60%,hsl(240_100%_2%)_85%)] desk:left-1/2 desk:right-auto desk:w-[700px] desk:-translate-x-1/2 desk:bg-[linear-gradient(180deg,hsl(240_100%_2%/0)_60%,hsl(240_100%_2%)_95%)]" />
+          <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,hsl(20_19%_5%/0)_60%,hsl(20_19%_5%)_85%)] desk:left-1/2 desk:right-auto desk:w-[700px] desk:-translate-x-1/2 desk:bg-[linear-gradient(180deg,hsl(20_19%_5%/0)_60%,hsl(20_19%_5%)_95%)]" />
         </Reveal>
 
         {/* Peran */}
