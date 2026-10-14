@@ -66,8 +66,27 @@ export default function Hero() {
               </a>
             </div>
 
+            {/* Social links */}
+            <div className="mt-10 flex items-center gap-3">
+              {[
+                { label: "GitHub", href: "https://github.com/AhmadSyukriGozali", text: "GH" },
+                { label: "Email", href: "mailto:ahmaddoang0809@gmail.com", text: "@" },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-xs font-bold text-slate-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:text-cyan-400"
+                >
+                  {social.text}
+                </a>
+              ))}
+            </div>
+
             {/* Small information */}
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm text-slate-500">
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4 text-sm text-slate-500">
               <span>🎓 Teknik Informatika</span>
               <span>📍 Indonesia</span>
               <span>💻 Terbuka untuk Peluang</span>

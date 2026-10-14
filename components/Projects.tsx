@@ -18,7 +18,7 @@ export default function Projects() {
           </p>
 
           <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-            Proyek yang sedang saya bangun.
+            Proyek yang saya bangun.
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
@@ -89,7 +89,11 @@ export default function Projects() {
                 Dalam Pengembangan
               </div>
 
-              <h3 className="mt-5 text-2xl font-bold text-white sm:text-3xl">
+              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
+                01 · Web
+              </p>
+
+              <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
                 NusaRasa
               </h3>
 
@@ -106,7 +110,10 @@ export default function Projects() {
               </p>
 
               {/* Tech stack */}
-              <div className="mt-7 flex flex-wrap gap-2">
+              <p className="mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Tech stack
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
                 {[
                   "Next.js",
                   "TypeScript",

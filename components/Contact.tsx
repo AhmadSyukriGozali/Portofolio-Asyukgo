@@ -107,6 +107,15 @@ export default function Contact() {
 
               <div className="flex items-center gap-3 text-slate-400">
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-cyan-400">
+                  📍
+                </span>
+                <span>Indonesia</span>
+              </div>
+
+              <div className="hidden h-5 w-px bg-white/10 sm:block" />
+
+              <div className="flex items-center gap-3 text-slate-400">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-cyan-400">
                   GH
                 </span>
                 <span>AhmadSyukriGozali</span>
