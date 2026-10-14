@@ -33,7 +33,7 @@ export default function Hero() {
           <div className="blob-animate left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 desk:h-[450px] desk:w-[450px]" />
 
           <Image
-            src="/images/profile/Foto_Transparan.png"
+            src="/images/profile/fotoProfileTF.png"
             alt="Ahmad Syukri Gozali"
             width={600}
             height={800}
