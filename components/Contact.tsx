@@ -144,7 +144,6 @@ export default function Contact() {
               >
                 TikTok <TikTokIcon className="h-6 w-6" />
               </a>
-
               <a href={`mailto:${email}`} className={linkClass}>
                 Email <MailIcon className="h-6 w-6" />
               </a>
@@ -185,7 +184,6 @@ export default function Contact() {
               >
                 TikTok <TikTokIcon className="h-6 w-6" />
               </a>
-
               <a href={`mailto:${email}`} className={linkClass}>
                 Kirim Email <ArrowUpRightIcon className="h-6 w-6" />
               </a>

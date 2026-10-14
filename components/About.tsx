@@ -19,9 +19,9 @@ export default function About() {
               <b className="font-semibold text-first">
                 pengembangan perangkat lunak
               </b>
-              . Saya senang mempelajari teknologi baru, memecahkan masalah logika, 
-              dan membangun beberapa proyek praktis dari awal. 
-              Saya siap untuk terus berkembang dan berkontribusi dalam tim yang dinamis.
+              . Saya senang mempelajari teknologi baru, memecahkan masalah logika,
+              dan membangun beberapa proyek praktis dari awal. Saya siap untuk
+              terus berkembang dan berkontribusi dalam tim yang dinamis.
             </p>
 
             <a
