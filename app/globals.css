@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
-/* Palet & tipografi mengikuti situs referensi (hue 255, Montserrat + Unbounded) */
+/* Tema Ember Glow: charcoal gelap dengan aksen oranye hangat */
 @theme {
   --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-second: "Unbounded Variable", ui-sans-serif, system-ui, sans-serif;
 
-  --color-bg: hsl(240 100% 2%);
-  --color-card: hsl(240 8% 6%);
-  --color-title: hsl(240 8% 95%);
-  --color-copy: hsl(240 8% 70%);
-  --color-muted: hsl(240 8% 50%);
-  --color-first: hsl(255 60% 64%);
-  --color-first-alt: hsl(255 80% 56%);
-  --color-first-alt-2: hsl(255 60% 56%);
-  --color-first-light: hsl(255 60% 74%);
+  --color-bg: hsl(20 19% 5%);
+  --color-card: hsl(24 20% 11%);
+  --color-title: hsl(30 33% 97%);
+  --color-copy: hsl(27 13% 75%);
+  --color-muted: hsl(27 10% 51%);
+  --color-first: hsl(24 100% 57%);
+  --color-first-alt: hsl(18 88% 52%);
+  --color-first-alt-2: hsl(18 79% 44%);
+  --color-first-light: hsl(32 100% 75%);
 
   /* dalam rem agar urutannya konsisten dengan breakpoint bawaan (540px & 1150px) */
   --breakpoint-xs: 33.75rem;
@@ -161,7 +161,7 @@
     font-family: var(--font-second);
     font-weight: 600;
     box-shadow:
-      0 8px 32px hsl(255 60% 64% / 0.5),
+      0 8px 32px hsl(24 100% 57% / 0.28),
       inset 8px -8px 30px var(--color-first-alt-2);
     transition: box-shadow 0.4s;
     cursor: pointer;
@@ -169,7 +169,7 @@
 
   .btn:hover {
     box-shadow:
-      0 8px 48px hsl(255 60% 64% / 0.7),
+      0 8px 48px hsl(24 100% 57% / 0.48),
       inset 8px -8px 30px var(--color-first-alt-2);
   }
 
@@ -343,19 +343,19 @@
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 0.6rem;
-  background-color: hsl(240 6% 12%);
+  background-color: hsl(24 12% 9%);
   border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(240 6% 20%);
+  background-color: hsl(24 13% 19%);
   border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(240 6% 24%);
+  background-color: hsl(24 15% 27%);
 }
 
 ::selection {
-  background: hsl(255 60% 64% / 0.4);
+  background: hsl(24 100% 57% / 0.35);
 }
