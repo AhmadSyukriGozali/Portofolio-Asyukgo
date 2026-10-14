@@ -26,8 +26,7 @@ export default function About() {
             </p>
 
             <a
-              href="/resume/CV-Ahmad-Syukri-Gozali.pdf"
-              download="CV-Ahmad-Syukri-Gozali.pdf"
+              href="/api/resume"
               className="btn inline-flex items-center gap-x-2"
             >
               Download Resume
