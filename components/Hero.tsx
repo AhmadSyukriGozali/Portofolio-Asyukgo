@@ -59,11 +59,11 @@ export default function Hero() {
           </h3>
 
           <h2 className="fs-bigger overflow-hidden text-center desk:fs-biggest desk:text-left">
-            <AnimatedText text="Informatika" />
+            <AnimatedText text="Teknik" />
           </h2>
 
           <h2 className="fs-bigger -translate-y-1 overflow-hidden text-center desk:fs-biggest desk:-translate-y-2 desk:text-left">
-            <AnimatedText text="& Developer" />
+            <AnimatedText text="& Informatika" />
           </h2>
         </Reveal>
 
