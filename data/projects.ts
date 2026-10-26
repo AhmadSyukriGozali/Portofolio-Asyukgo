@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: "CrawlFast",
     tagline: "Platform E-Commerce dengan Dashboard Admin",
     description:
-      "Platform e-commerce yang dikembangkan menggunakan Next.js dan Supabase, dengan katalog produk, autentikasi pelanggan, pengelolaan pesanan, serta integrasi pembayaran Midtrans Sandbox. Proyek ini juga mencakup pengembangan dashboard admin untuk membantu pengelolaan pesanan dan pemantauan transaksi.",
+      "Platform e-commerce yang dikembangkan menggunakan Next.js dan Supabase, dengan katalog produk, autentikasi pelanggan, pengelolaan pesanan, serta integrasi pembayaran Midtrans Sandbox (Demo), Kalau sudah terkonfirmasi akun Midtrans bisa digunakan. Proyek ini juga mencakup pengembangan dashboard admin untuk membantu pengelolaan pesanan dan pemantauan transaksi.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     ],
     image: "/previewProjects/preview-crawlfast.png",
     imageAlt: "Preview platform e-commerce CrawlFast",
-    demoUrl: "https://crawlfast.vercel.app/",
+    demoUrl: "https://crawlfast.biz.id/",
     githubUrl: "https://github.com/AhmadSyukriGozali/crawlfast",
     status: "Dalam Pengembangan",
   },
