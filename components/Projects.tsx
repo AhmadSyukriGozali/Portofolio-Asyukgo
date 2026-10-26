@@ -34,7 +34,7 @@ export default function Projects() {
         >
           {projects.map((project, index) => (
             <SwiperSlide key={project.id} className="h-auto w-auto!">
-              <article className="relative w-[280px] overflow-hidden rounded-[3rem] bg-card p-6 xs:w-[350px] desk:w-[440px] desk:rounded-[4rem] desk:p-10">
+              <article className="relative w-70 overflow-hidden rounded-[3rem] bg-card p-6 xs:w-[350px] desk:w-[440px] desk:rounded-[4rem] desk:p-10">
                 <div className="group relative mb-6">
                   <Image
                     src={project.image}
@@ -50,7 +50,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Buka demo ${project.title}`}
-                    className="absolute right-3 top-3 grid h-12 w-12 place-items-center rounded-full border-[3px] border-first bg-bg text-title opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100 desk:right-6 desk:top-6"
+                    className="absolute right-3 top-3 grid h-12 w-12 place-items-center rounded-full border-[3px] border-first bg-bg text-title opacity-0 transition-opacity duration-400 group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100 desk:right-6 desk:top-6"
                   >
                     <ArrowUpRightIcon className="h-6 w-6" />
                   </a>
@@ -83,7 +83,7 @@ export default function Projects() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="fs-small mt-5 inline-flex items-center gap-x-2 font-second font-semibold text-title transition-colors duration-[400ms] hover:text-first"
+                  className="fs-small mt-5 inline-flex items-center gap-x-2 font-second font-semibold text-title transition-colors duration-400 hover:text-first"
                 >
                   Lihat di GitHub
                   <ArrowUpRightIcon className="h-4 w-4" />

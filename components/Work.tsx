@@ -68,7 +68,7 @@ export default function Work() {
               role="tab"
               aria-selected={active === id}
               onClick={() => setActive(id)}
-              className={`fs-small flex items-center gap-x-1 font-second transition-colors duration-[400ms] hover:text-first ${
+              className={`fs-small flex items-center gap-x-1 font-second transition-colors duration-400 hover:text-first ${
                 active === id ? "text-first" : "text-copy"
               }`}
             >
@@ -79,8 +79,8 @@ export default function Work() {
         </div>
 
         {/* Daftar */}
-        <div className="relative pl-4 md:pl-0 xs:w-[460px] md:w-[600px] desk:w-[1050px]">
-          <div className="absolute -left-1 top-0 h-full w-1 bg-[linear-gradient(180deg,hsl(255_60%_64%/0),var(--color-first-alt-2))] after:absolute after:-left-1.5 after:bottom-[-1px] after:h-4 after:w-4 after:rounded-full after:bg-first-alt-2 after:content-[''] md:inset-x-0 md:left-0 md:mx-auto" />
+        <div className="relative pl-4 md:pl-0 xs:w-[460px] md:w-150 desk:w-[1050px]">
+          <div className="absolute -left-1 top-0 h-full w-1 bg-[linear-gradient(180deg,hsl(255_60%_64%/0),var(--color-first-alt-2))] after:absolute after:-left-1.5 after:-bottom-px after:h-4 after:w-4 after:rounded-full after:bg-first-alt-2 after:content-[''] md:inset-x-0 md:left-0 md:mx-auto" />
 
           <div className="grid gap-y-16 desk:gap-y-20">
             {current.entries.map((entry) => (
@@ -105,7 +105,7 @@ export default function Work() {
                       href={entry.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="fs-small mt-1 inline-flex items-center gap-x-2 font-second font-semibold text-title transition-colors duration-[400ms] hover:text-first"
+                      className="fs-small mt-1 inline-flex items-center gap-x-2 font-second font-semibold text-title transition-colors duration-400 hover:text-first"
                     >
                       Lihat Sertifikat
                       <ArrowUpRightIcon className="h-4 w-4" />

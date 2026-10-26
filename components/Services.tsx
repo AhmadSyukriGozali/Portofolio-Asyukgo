@@ -55,17 +55,17 @@ export default function Services() {
                     onClick={() => setOpenId(open ? null : card.id)}
                     aria-expanded={open}
                     aria-label={`${open ? "Tutup" : "Buka"} ${card.title}`}
-                    className="absolute bottom-4 right-4 z-[2] grid h-8 w-8 place-items-center rounded-lg border-2 border-first bg-bg text-title desk:bottom-8 desk:right-8"
+                    className="absolute bottom-4 right-4 z-2 grid h-8 w-8 place-items-center rounded-lg border-2 border-first bg-bg text-title desk:bottom-8 desk:right-8"
                   >
                     <ChevronDownIcon
-                      className={`h-5 w-5 transition-transform duration-[400ms] ${
+                      className={`h-5 w-5 transition-transform duration-400 ${
                         open ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   <div
-                    className={`grid transition-[grid-template-rows,opacity] duration-[400ms] ease-in-out ${
+                    className={`grid transition-[grid-template-rows,opacity] duration-400 ease-in-out ${
                       open
                         ? "grid-rows-[1fr] opacity-100"
                         : "grid-rows-[0fr] opacity-0"

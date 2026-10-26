@@ -36,4 +36,27 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/AhmadSyukriGozali/nusarasa",
     status: "Dalam Pengembangan",
   },
+  
+  {
+    id: "crawlfast",
+    category: "Web",
+    title: "CrawlFast",
+    tagline: "Platform E-Commerce dengan Dashboard Admin",
+    description:
+      "Platform e-commerce yang dikembangkan menggunakan Next.js dan Supabase, dengan katalog produk, autentikasi pelanggan, pengelolaan pesanan, serta integrasi pembayaran Midtrans Sandbox. Proyek ini juga mencakup pengembangan dashboard admin untuk membantu pengelolaan pesanan dan pemantauan transaksi.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Midtrans",
+    ],
+    image: "/previewProjects/preview-crawlfast.png",
+    imageAlt: "Preview platform e-commerce CrawlFast",
+    demoUrl: "https://crawlfast.vercel.app/",
+    githubUrl: "https://github.com/AhmadSyukriGozali/crawlfast",
+    status: "Dalam Pengembangan",
+  },
 ];

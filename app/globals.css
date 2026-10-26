@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Tema Ember Glow: charcoal gelap dengan aksen oranye hangat */
-@theme {
+:root {
   --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-second: "Unbounded Variable", ui-sans-serif, system-ui, sans-serif;
 
@@ -18,9 +18,7 @@
   /* dalam rem agar urutannya konsisten dengan breakpoint bawaan (540px & 1150px) */
   --breakpoint-xs: 33.75rem;
   --breakpoint-desk: 71.875rem;
-}
 
-:root {
   --header-height: 3.5rem;
   --biggest-font-size: 2rem;
   --bigger-font-size: 1.75rem;
@@ -45,29 +43,31 @@
   }
 }
 
-@utility fs-biggest {
-  font-size: var(--biggest-font-size);
-}
-@utility fs-bigger {
-  font-size: var(--bigger-font-size);
-}
-@utility fs-h1 {
-  font-size: var(--h1-font-size);
-}
-@utility fs-h2 {
-  font-size: var(--h2-font-size);
-}
-@utility fs-h3 {
-  font-size: var(--h3-font-size);
-}
-@utility fs-normal {
-  font-size: var(--normal-font-size);
-}
-@utility fs-small {
-  font-size: var(--small-font-size);
-}
-@utility fs-smaller {
-  font-size: var(--smaller-font-size);
+@layer utilities {
+  .fs-biggest {
+    font-size: var(--biggest-font-size);
+  }
+  .fs-bigger {
+    font-size: var(--bigger-font-size);
+  }
+  .fs-h1 {
+    font-size: var(--h1-font-size);
+  }
+  .fs-h2 {
+    font-size: var(--h2-font-size);
+  }
+  .fs-h3 {
+    font-size: var(--h3-font-size);
+  }
+  .fs-normal {
+    font-size: var(--normal-font-size);
+  }
+  .fs-small {
+    font-size: var(--small-font-size);
+  }
+  .fs-smaller {
+    font-size: var(--smaller-font-size);
+  }
 }
 
 @layer base {
